@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Time {
     private int hours;
     private int minutes;
@@ -29,7 +31,11 @@ public class Time {
     }
 
     public void setSecond(int second) {
-        this.second = second;
+        if(second<60) {
+            this.second = second;
+        }else{
+            System.out.println("input valid time");
+        }
     }
 
     public int getMinutes() {
@@ -37,7 +43,11 @@ public class Time {
     }
 
     public void setMinutes(int minutes) {
-        this.minutes = minutes;
+        if(minutes<60) {
+            this.minutes = minutes;
+        }else{
+            System.out.println("input valid time");
+        }
     }
 
     public int getHours() {
@@ -45,12 +55,21 @@ public class Time {
     }
 
     public void setHours(int hours) {
-        this.hours = hours;
+        if(hours<24) {
+            this.hours = hours;
+        }else{
+            System.out.println("input valid time");
+        }
     }
     public void setTime(int hours,int minutes,int second){
-        this.hours=hours;
-        this.minutes=minutes;
-        this.second=second;
+        if(hours<24 & minutes<60 & second<60){
+            this.hours=hours;
+            this.minutes=minutes;
+            this.second=second;
+        }else{
+            System.out.println("input valid time");
+        }
+
     }
     public void getTime(){
         System.out.println("hours:"+hours+" minutes:"+minutes+" second:"+second);
